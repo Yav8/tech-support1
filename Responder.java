@@ -76,7 +76,12 @@ public class Responder
         String respuesta = mapaDeRespuestas.get(texto);
         
         if(respuesta == null) {
-            respuesta = listaRespuestas.get(aleatorio.nextInt(listaRespuestas.size()));
+            if(listaRespuestas.size() != 0) {
+                respuesta = listaRespuestas.remove(aleatorio.nextInt(listaRespuestas.size()));
+            }
+            else {
+                respuesta = "I don't understand your question";
+            }
         }
         
         return respuesta;
